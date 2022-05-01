@@ -22,8 +22,6 @@ Matrix &Matrix::operator=(Matrix &&x) noexcept {
         return *this;
     }
 
-//        delete matrix;
-
     *matrixArr = *x.matrixArr;
 
     return *this;
@@ -46,18 +44,16 @@ Matrix::Matrix(int lines_amount, int columns_amount) {
 }
 
 Matrix::~Matrix() {
-//    delete matrixArr;
+    delete matrixArr;
 }
 
 int Matrix::getElementByLineIndexAndColumnIndex(int lineIndex, int columnIndex) {
 
-//    cout << "Actual lines amount: " + to_string(linesAmount) + ", column amount: " + to_string(columnsAmount) + "\n";
-
     try {
 
-//        if (this -> linesAmount <= linesAmount || this -> columnsAmount <= columnIndex) {
-//            throw runtime_error("[" + to_string(lineIndex) + "," + to_string(columnIndex) + "]: OUT OF RANGE");
-//        }
+        if (this -> linesAmount <= lineIndex || this -> columnsAmount <= columnIndex) {
+            throw runtime_error("[" + to_string(lineIndex) + "," + to_string(columnIndex) + "]: OUT OF RANGE");
+        }
 
         return matrixArr[lineIndex][columnIndex];
 
@@ -93,10 +89,6 @@ void Matrix::setElementByLineIndexAndColumnIndex(int lineIndex, int columnIndex,
 
 int **Matrix::getMatrixArr() const {
     return matrixArr;
-}
-
-void Matrix::setMatrixArr(int **matrixArr) {
-    Matrix::matrixArr = matrixArr;
 }
 
 void Matrix::initializeMatrixArray() {

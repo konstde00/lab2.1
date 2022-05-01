@@ -35,8 +35,6 @@ public:
     int getElementByLineIndexAndColumnIndex(int lineIndex, int columnIndex);
 
     void setElementByLineIndexAndColumnIndex(int lineIndex, int columnIndex, int value);
-
-    void setMatrixArr(int **matrixArr);
 };
 
 #endif //LAB_2_1_MATRIX_H
